@@ -1,11 +1,12 @@
-import fs from "node:fs/promises";
+// import fs from "node:fs/promises";
+import { readFile } from "node:fs/promises";
 import { v4 as uuidv4 } from "uuid";
 
 const fileName = "quotes.json";
 
 export async function getQuotes() {
   try {
-    const data = await fs(fileName, "utf8");
+    const data = await readFile(fileName, "utf8");
     console.log(data);
   } catch (error) {
     console.error("Error reading file:", error);
